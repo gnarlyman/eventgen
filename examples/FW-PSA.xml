@@ -1,0 +1,3 @@
+<ns2:PlacementStatusAcknowledgement identity="FreeWheel-ADS" messageId="47056819701504" messageRef="34759848-4e9d-4289-8fe9-5d0ac09ab60e" version="1.0" xmlns="http://www.scte.org/schemas/130-2/2008a/core" xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns2="http://www.scte.org/schemas/130-3/2008a/adm">
+	<StatusCode class="0"/>
+</ns2:PlacementStatusAcknowledgement>

@@ -1,0 +1,23 @@
+<ns2:PlacementStatusNotification identity="BA-ADM-PROD" messageId="34759848-4e9d-4289-8fe9-5d0ac09ab60e" psnType="status" system="BA-SYSTEM-PROD" version="1.1" xmlns="http://www.scte.org/schemas/130-2/2008a/core" xmlns:ns2="http://www.scte.org/schemas/130-3/2008a/adm" xmlns:ns3="http://www.scte.org/schemas/130-3/2008a/adm/podm" xmlns:ns4="http://www.scte.org/schemas/130-8/2010a/gis">
+	<ns2:PlayData identityADM="BA-ADM-PROD" identityADS="FreeWheel-ADS" systemADM="BA-SYSTEM-PROD">
+		<ns2:SystemContext>
+			<ns2:ServiceGroup>8098</ns2:ServiceGroup>
+			<ns2:Session>001bd75c1aa500000db7</ns2:Session>
+		</ns2:SystemContext>
+		<ns2:Events>
+			<ns2:PlacementStatusEvent messageRef="87dd2e97-7325-4316-9e8d-929b2bdc981a" time="2014-06-05T00:03:52.198-04:00" type="status">
+				<StatusCode class="0">
+					<Note>SUCCEEDED</Note>
+				</StatusCode>
+				<ns2:Spot>
+					<Tracking>s=f006|n=376521%3B376521|t=1401941009151766005|f=|r=376521|adid=3476510|reid=2408493|arid=0|auid=|_cc=3476510,2408493,,,1401941009,1|tpos=0|init=1|asid=62582118|ssid=935700|vcid2=7e290b2b-1569-323b-8230-183a7da5f8aa</Tracking>
+					<Content>
+						<AssetRef assetID="PMGM2715847981745220" providerID="twcable.com"/>
+						<Duration>PT30.000S</Duration>
+						<Tracking>s=f006|n=376521%3B376521|t=1401941009151766005|f=|r=376521|adid=3476510|reid=2408493|arid=0|auid=|_cc=3476510,2408493,,,1401941009,1|tpos=0|init=1|asid=62582118|ssid=935700|vcid2=7e290b2b-1569-323b-8230-183a7da5f8aa</Tracking>
+					</Content>
+				</ns2:Spot>
+			</ns2:PlacementStatusEvent>
+		</ns2:Events>
+	</ns2:PlayData>
+</ns2:PlacementStatusNotification>

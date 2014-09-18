@@ -1,0 +1,73 @@
+1401947933419+++++o+++++https://adsdai.canoe-ventures.com/ads-1.2.0/service/ADSService+++++
+<ns2:PlacementRequest identity="BA-ADM-PROD" messageId="TWC_ADM_OCF}:{1d9abe17-33c3-402d-9799-4ca332586249" responseIdentity="CanoeNationalDAI-ADS" system="OCF" updatesAllowed="false" version="1.1" xmlns="http://www.scte.org/schemas/130-2/2008a/core" xmlns:ns2="http://www.scte.org/schemas/130-3/2008a/adm" xmlns:ns3="http://www.scte.org/schemas/130-3/2008a/adm/podm" xmlns:ns4="http://www.scte.org/schemas/130-8/2010a/gis">
+	<ns2:SystemContext>
+		<ns2:Session>B1hmOp5y/X4zoT0ulr+95t3sZMgaeIbj</ns2:Session>
+	</ns2:SystemContext>
+	<ns2:Service id="PBSK">
+		<ns2:ContentProvider providerID="nickelodeon.com"/>
+	</ns2:Service>
+	<ns2:Entertainment>
+		<Content>
+			<AssetRef assetID="XPMV0000000000220187" providerID="nickelodeon.com"/>
+			<Duration>PT25M5.000S</Duration>
+		</Content>
+	</ns2:Entertainment>
+	<ns2:Client>
+		<CurrentDateTime>2014-06-04T22:58:53.357-07:00</CurrentDateTime>
+		<ns2:TerminalAddress type="private:GUID">/ENpGLofZHntyMIIoTGtD3DckzBimnRJlYgh7DItXHUGVy4JGJV68g==</ns2:TerminalAddress>
+		<ns2:TargetCode key="GUID">1acfafb6-5fc4-4a09-8ca2-771e031e3e5b</ns2:TargetCode>
+		<ns2:TargetCode key="balibid">51682</ns2:TargetCode>
+		<ns2:TargetCode account="8" key="genre">Animation</ns2:TargetCode>
+		<ns2:TargetCode account="8" key="ph">55383</ns2:TargetCode>
+		<ns2:TargetCode account="8" key="ph">69239</ns2:TargetCode>
+		<ns2:TargetCode account="8" key="pl6">69239</ns2:TargetCode>
+		<ns2:TargetCode account="8" key="prgdur">Standard 30</ns2:TargetCode>
+		<ns2:TargetCode account="8" key="rating">TV-Y7</ns2:TargetCode>
+		<ns2:TargetCode account="8" key="titlebrief">Rabbids: Dreams</ns2:TargetCode>
+		<ns2:TargetCode account="8" key="accountid">8</ns2:TargetCode>
+		<ns2:TargetCode key="assetid">XPMV0000000000220187</ns2:TargetCode>
+		<ns2:TargetCode account="8" key="distributorextref">TWC</ns2:TargetCode>
+		<ns2:TargetCode key="externaladid">nickelodeon.com^XPMV0000000000220187</ns2:TargetCode>
+		<ns2:TargetCode account="8" key="movie.assetid">XPMV0000000000220187</ns2:TargetCode>
+		<ns2:TargetCode account="8" key="movie.providerid">nickelodeon.com</ns2:TargetCode>
+		<ns2:TargetCode account="8" key="owneraccountid">8</ns2:TargetCode>
+		<ns2:TargetCode account="8" key="package.assetid">XPPK0000000000220187</ns2:TargetCode>
+		<ns2:TargetCode account="8" key="package.providerid">nickelodeon.com</ns2:TargetCode>
+		<ns2:TargetCode account="8" key="poster.assetid">XPPO0000000000220187</ns2:TargetCode>
+		<ns2:TargetCode account="8" key="poster.providerid">nickelodeon.com</ns2:TargetCode>
+		<ns2:TargetCode account="8" key="providerextref">Nickelodeon</ns2:TargetCode>
+		<ns2:TargetCode account="8" key="providerid">nickelodeon.com</ns2:TargetCode>
+		<ns2:TargetCode account="8" key="title.assetid">XPTL0000000000220187</ns2:TargetCode>
+		<ns2:TargetCode account="8" key="title.providerid">nickelodeon.com</ns2:TargetCode>
+		<ns2:TargetCode account="8" key="version">20140605053001</ns2:TargetCode>
+		<ns2:TargetCode account="1" key="genre">Animation</ns2:TargetCode>
+		<ns2:TargetCode account="1" key="prgdur">Standard 30</ns2:TargetCode>
+		<ns2:TargetCode account="1" key="rating">TV-Y7</ns2:TargetCode>
+		<ns2:TargetCode account="1" key="titlebrief">Rabbids: Dreams</ns2:TargetCode>
+		<ns2:TargetCode account="1" key="accountid">1</ns2:TargetCode>
+		<ns2:TargetCode account="1" key="distributorextref">TWC</ns2:TargetCode>
+		<ns2:TargetCode account="1" key="movie.assetid">XPMV0000000000220187</ns2:TargetCode>
+		<ns2:TargetCode account="1" key="movie.providerid">nickelodeon.com</ns2:TargetCode>
+		<ns2:TargetCode account="1" key="owneraccountid">8</ns2:TargetCode>
+		<ns2:TargetCode account="1" key="package.assetid">XPPK0000000000220187</ns2:TargetCode>
+		<ns2:TargetCode account="1" key="package.providerid">nickelodeon.com</ns2:TargetCode>
+		<ns2:TargetCode account="1" key="poster.assetid">XPPO0000000000220187</ns2:TargetCode>
+		<ns2:TargetCode account="1" key="poster.providerid">nickelodeon.com</ns2:TargetCode>
+		<ns2:TargetCode account="1" key="providerextref">Nickelodeon</ns2:TargetCode>
+		<ns2:TargetCode account="1" key="title.assetid">XPTL0000000000220187</ns2:TargetCode>
+		<ns2:TargetCode account="1" key="title.providerid">nickelodeon.com</ns2:TargetCode>
+		<ns2:TargetCode account="1" key="version">20140605053001</ns2:TargetCode>
+		<ns2:TargetCode key="vboid">TWC_ADM_OCF</ns2:TargetCode>
+	</ns2:Client>
+	<ns2:ADMData>OCF</ns2:ADMData>
+	<ns2:PlacementOpportunity id="0}:{fe972247-de04-40d2-9305-ec68333ad7d6" serviceRegistrationRef="62b8596e-f150-4cf3-b2e2-e422f7d87305">
+		<ns2:OpportunityBinding breakOpportunitiesExpected="1" breakOpportunitySequence="1" opportunityNumber="1" opportunityType="preRoll" poGroupIndex="1"/>
+		<ns2:OpportunityConstraints>
+			<AdType>Ad</AdType>
+			<ns2:MaxDuration>P0Y0M0DT0H0M30.000S</ns2:MaxDuration>
+			<ns2:MinDuration>P0Y0M0DT0H0M10.000S</ns2:MinDuration>
+			<ns2:DesiredDuration>P0Y0M0DT0H0M10.000S</ns2:DesiredDuration>
+			<ns2:PlacementCount>1</ns2:PlacementCount>
+		</ns2:OpportunityConstraints>
+	</ns2:PlacementOpportunity>
+</ns2:PlacementRequest>

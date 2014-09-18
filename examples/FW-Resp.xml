@@ -1,0 +1,77 @@
+1401942316122+++++i+++++https://5bec9.v.fwmrm.net/scte/request?nw=376521&csid=natvod_section&prof=376521:qam_vod&resp=scte-130+++++
+<PlacementResponse identity="FreeWheel-ADS" messageId="445E7B80-2ACC-0000-0000-000000000000" messageRef="TWC_ADM_QUN}:{767fcd1f-ef44-45d7-b5af-412f1b35a019" version="1.0" xmlns="http://www.scte.org/schemas/130-3/2008a/adm" xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:core="http://www.scte.org/schemas/130-2/2008a/core">
+	<core:StatusCode class="0"/>
+	<SystemContext>
+		<Session>10ea591883c800000f8f</Session>
+	</SystemContext>
+	<Service id="ENTOD">
+		<ContentProvider providerID="aetv.com"/>
+	</Service>
+	<Client>
+		<core:CurrentDateTime>2014-06-05T00:25:15.913-04:00</core:CurrentDateTime>
+		<TerminalAddress type="private:GUID">7d29eaec-e895-11e3-8a76-005056a90091</TerminalAddress>
+		<TargetCode key="GUID">cc847650-05b1-3143-9de0-db298b16a2fe</TargetCode>
+		<TargetCode key="balibid">48881</TargetCode>
+		<TargetCode key="genre">Drama</TargetCode>
+		<TargetCode key="prgdur">Standard 30</TargetCode>
+		<TargetCode key="rating">TV-PG</TargetCode>
+		<TargetCode key="titlebrief">Barry 05-06 HD</TargetCode>
+		<TargetCode key="accountid">1</TargetCode>
+		<TargetCode key="assetid">AEHM1234567890126104</TargetCode>
+		<TargetCode key="black.1">0.000-2.795</TargetCode>
+		<TargetCode key="preRoll.1">2.795-18.651</TargetCode>
+		<TargetCode key="midRoll.1">397.134-397.83</TargetCode>
+		<TargetCode key="midRoll.2">707.511-739.471</TargetCode>
+		<TargetCode key="distributorextref">TWC</TargetCode>
+		<TargetCode key="externaladid">aetv.com^AEHM1234567890126104</TargetCode>
+		<TargetCode key="movie.assetid">AEHM1234567890126104</TargetCode>
+		<TargetCode key="movie.providerid">aetv.com</TargetCode>
+		<TargetCode key="owneraccountid">7</TargetCode>
+		<TargetCode key="package.assetid">AEHP1234567890126104</TargetCode>
+		<TargetCode key="package.providerid">aetv.com</TargetCode>
+		<TargetCode key="poster.assetid">AEHO1234567890126104</TargetCode>
+		<TargetCode key="poster.providerid">aetv.com</TargetCode>
+		<TargetCode key="providerextref">AEHD</TargetCode>
+		<TargetCode key="title.assetid">AEHT1234567890126104</TargetCode>
+		<TargetCode key="title.providerid">aetv.com</TargetCode>
+		<TargetCode key="version">20140605040003</TargetCode>
+		<TargetCode key="genre">Drama</TargetCode>
+		<TargetCode key="ph">49494</TargetCode>
+		<TargetCode key="ph">49495</TargetCode>
+		<TargetCode key="ph">64804</TargetCode>
+		<TargetCode key="ph">65565</TargetCode>
+		<TargetCode key="pl6">65565</TargetCode>
+		<TargetCode key="prgdur">Standard 30</TargetCode>
+		<TargetCode key="rating">TV-PG</TargetCode>
+		<TargetCode key="titlebrief">Barry 05-06 HD</TargetCode>
+		<TargetCode key="accountid">7</TargetCode>
+		<TargetCode key="distributorextref">TWC</TargetCode>
+		<TargetCode key="movie.assetid">AEHM1234567890126104</TargetCode>
+		<TargetCode key="owneraccountid">7</TargetCode>
+		<TargetCode key="package.assetid">AEHP1234567890126104</TargetCode>
+		<TargetCode key="poster.assetid">AEHO1234567890126104</TargetCode>
+		<TargetCode key="providerextref">AEHD</TargetCode>
+		<TargetCode key="providerid">aetv.com</TargetCode>
+		<TargetCode key="title.assetid">AEHT1234567890126104</TargetCode>
+		<TargetCode key="version">20140605040003</TargetCode>
+		<TargetCode key="vboid">TWC_ADM_QUN</TargetCode>
+		<TargetCode key="BPLAST">2</TargetCode>
+	</Client>
+	<PlacementDecision id="3D4C0140-2ACC-0000-0000-000000000000" placementOpportunityRef="4}:{5d38a89f-90d8-4c88-a144-805740ab761e">
+		<OpportunityBinding opportunityNumber="5" opportunityType="midRoll"/>
+		<Placement action="fill" id="00350C1F-0000-0000-0000-00000024C02D">
+			<core:Tracking>s=f006|n=376521%3B376521|t=1401942316095383007|f=|r=376521|adid=3476511|reid=2408493|arid=0|auid=|_cc=3476511,2408493,,,1401942316,1|tpos=0|init=1|asid=62578868|ssid=935700|vcid2=cc847650-05b1-3143-9de0-db298b16a2fe</core:Tracking>
+			<core:Content>
+				<core:AssetRef assetID="PMGM2715847981745220" providerID="twcable.com"/>
+				<core:Tracking>s=f006|n=376521%3B376521|t=1401942316095383007|f=|r=376521|adid=3476511|reid=2408493|arid=0|auid=|_cc=3476511,2408493,,,1401942316,1|tpos=0|init=1|asid=62578868|ssid=935700|vcid2=cc847650-05b1-3143-9de0-db298b16a2fe</core:Tracking>
+			</core:Content>
+		</Placement>
+		<Placement action="fill" id="003541F1-0000-0000-0000-00000028EAE3">
+			<core:Tracking>s=f006|n=376521%3B376521|t=1401942316095383007|f=|r=376521|adid=3490289|reid=2681571|arid=0|auid=|_cc=3490289,2681571,,,1401942316,1|tpos=0|init=1|asid=62578868|ssid=935700|vcid2=cc847650-05b1-3143-9de0-db298b16a2fe</core:Tracking>
+			<core:Content>
+				<core:AssetRef assetID="PMGM3264811911037764" providerID="twcable.com"/>
+				<core:Tracking>s=f006|n=376521%3B376521|t=1401942316095383007|f=|r=376521|adid=3490289|reid=2681571|arid=0|auid=|_cc=3490289,2681571,,,1401942316,1|tpos=0|init=1|asid=62578868|ssid=935700|vcid2=cc847650-05b1-3143-9de0-db298b16a2fe</core:Tracking>
+			</core:Content>
+		</Placement>
+	</PlacementDecision>
+</PlacementResponse>

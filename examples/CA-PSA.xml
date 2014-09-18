@@ -1,0 +1,4 @@
+1401947938511+++++i+++++https://psndai.canoe-ventures.com/ads-1.2.0/service/ADSService+++++
+<ns3:PlacementStatusAcknowledgement identity="CanoeNationalDAI-ADS" messageId="9d86ca76-370c-4a2b-ba26-a864d9089065" messageRef="3c5c47e8-3e31-416b-81ba-22bbe964d6f7" system="CanoeNationalDAI" version="1.1" xmlns="http://www.scte.org/schemas/130-2/2008a/core" xmlns:ns2="http://www.scte.org/schemas/130-8/2010a/gis" xmlns:ns3="http://www.scte.org/schemas/130-3/2008a/adm" xmlns:ns4="http://www.scte.org/schemas/130-3/2008a/adm/podm" xmlns:ns5="http://www.tandbergtv.com/schemas/130-ext/2008a/ext">
+	<StatusCode class="0"/>
+</ns3:PlacementStatusAcknowledgement>
