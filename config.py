@@ -1,6 +1,6 @@
 import json
 
-from lib.eventgenlib import read_file, randhex, randid
+from lib.eventgenlib import read_file, randhex, randid, genLines_BA
 
 from lib.gen import Case, LineGen
 
@@ -63,6 +63,12 @@ CONFIG = {
         'ba.log' : {
             'file':'samples/ba.log',
             'callback':LineGen,
+            'function':genLines_BA,
+        },
+        'jboss.all.log' : {
+            'file':'samples/ba.log',
+            'callback':LineGen,
+            'function':genLines_BA,
         }
     },
 }

@@ -76,3 +76,21 @@ def drange(start, stop, step):
     return retval
 
 current_milli_time = lambda: int(round(time.time() * 1000))
+
+def genLines_BA(self):
+    with open(self.config['file']) as f:
+        count = 0
+        while not self.stopped():
+            for line in f:
+                if self.stopped():
+                    return
+                count+=1
+                if not count%10:
+                    print self.name,'-',count,'events sent'
+                now = current_milli_time()
+
+                line = str(now)+line[13:]
+                #print line
+                self.sock.send(line+'\n\n\n')
+                time.sleep(0.5)
+            f.seek(0) 

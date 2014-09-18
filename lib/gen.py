@@ -1,11 +1,41 @@
-import random
+import random, time, threading, socket
 
-from lib.eventgenlib import now, clear_blacklist, clear_latency
+from lib.eventgenlib import now, clear_blacklist, clear_latency, current_milli_time
 from lib.async import CallLater
 
 '''
 Emulation of SCTE 130 messages
 '''
+
+class LineGen(threading.Thread):
+    sock = None
+    def __init__(self, *args, **kwargs):
+        super(LineGen, self).__init__()
+        self.config = kwargs['config']
+        self.ka = kwargs['ka']
+        self.name = kwargs['name']
+        self._stop = threading.Event()
+    
+    def stop(self):
+        self._stop.set()
+
+    def stopped(self):
+        return self._stop.isSet()
+
+    def run(self): 
+        print 'LineGen:', self.config['file']
+        self.sock = None
+        while not self.sock:
+            self.sock = self.ka.getSocket()
+            if not self.sock:
+                time.sleep(0.5)
+        try:
+            self.config['function'](self)
+        except socket.error, e:
+            #print 'Error:', str(e)
+            self.ka.regenSocket()
+            return self.run()  
+
 class Case(object):
     iterations = 0
     sinfo = None
@@ -105,3 +135,4 @@ class Case(object):
             or ""
             )])
         )
+
