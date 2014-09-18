@@ -12,7 +12,6 @@ class LineGen(threading.Thread):
     def __init__(self, *args, **kwargs):
         super(LineGen, self).__init__()
         self.config = kwargs['config']
-        self.ka = kwargs['ka']
         self.name = kwargs['name']
         self._stop = threading.Event()
     
@@ -24,17 +23,7 @@ class LineGen(threading.Thread):
 
     def run(self): 
         print 'LineGen:', self.config['file']
-        self.sock = None
-        while not self.sock:
-            self.sock = self.ka.getSocket()
-            if not self.sock:
-                time.sleep(0.5)
-        try:
-            self.config['function'](self)
-        except socket.error, e:
-            #print 'Error:', str(e)
-            self.ka.regenSocket()
-            return self.run()  
+        self.config['function'](self)
 
 class Case(object):
     iterations = 0

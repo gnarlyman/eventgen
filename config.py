@@ -1,6 +1,6 @@
 import json
 
-from lib.eventgenlib import read_file, randhex, randid, genLines_BA
+from lib.eventgenlib import *
 
 from lib.gen import Case, LineGen
 
@@ -61,14 +61,18 @@ CONFIG = {
     # LineGen configuration
     'linegen' : {
         'ba.log' : {
+            'disabled':False,
             'file':'samples/ba.log',
             'callback':LineGen,
             'function':genLines_BA,
+            'output':'output/ba.log',
         },
-        'jboss.all.log' : {
-            'file':'samples/ba.log',
+        'jboss.log' : {
+            'disabled':False,
+            'file':'samples/jboss.all.log',
             'callback':LineGen,
-            'function':genLines_BA,
+            'function':genLines_Jboss,
+            'output':'output/jboss.log',
         }
     },
 }

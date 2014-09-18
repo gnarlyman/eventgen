@@ -1,6 +1,8 @@
 import time
 import random
 import socket
+import re
+from datetime import datetime
 
 import splunklib.client as client
 
@@ -78,10 +80,10 @@ def drange(start, stop, step):
 current_milli_time = lambda: int(round(time.time() * 1000))
 
 def genLines_BA(self):
-    with open(self.config['file']) as f:
+    with open(self.config['file']) as in_f, open(self.config['output'],'a') as out_f:
         count = 0
         while not self.stopped():
-            for line in f:
+            for line in in_f:
                 if self.stopped():
                     return
                 count+=1
@@ -90,7 +92,33 @@ def genLines_BA(self):
                 now = current_milli_time()
 
                 line = str(now)+line[13:]
-                #print line
-                self.sock.send(line+'\n\n\n')
+                out_f.write(line)
+
                 time.sleep(0.5)
+            f.seek(0)
+
+def genLines_Jboss(self):
+    ts_re = re.compile('^(\d{2}\s[A-Za-z]{3}\s\d{4}\s\d{2}:\d{2}:\d{2},\d{3})')
+    ts_format = '%d %b %Y %H:%M:%S,%f'
+    with open(self.config['file']) as in_f, open(self.config['output'],'a') as out_f:
+        count = 0
+        while not self.stopped():
+            lg = []
+            for line in in_f:
+                if self.stopped():
+                    return
+                m = ts_re.search(line)
+                if m:
+                    if len(lg):
+                        out_f.write(''.join(lg))
+                        count+=1
+                        print self.name,'-',count,'events sent'
+                        time.sleep(60) 
+                    ts = m.group(0)
+                    ts_len = len(ts)
+                    new_ts = datetime.utcnow().strftime(ts_format)[:-3]
+                    line = new_ts+line[ts_len:]
+                    lg=[line]
+                else:
+                    lg.append(line)
             f.seek(0) 
