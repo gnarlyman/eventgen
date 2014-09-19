@@ -2,6 +2,8 @@ import time
 import random
 import socket
 import re
+import os
+import shutil
 from datetime import datetime
 
 import splunklib.client as client
@@ -79,16 +81,21 @@ def drange(start, stop, step):
 
 current_milli_time = lambda: int(round(time.time() * 1000))
 
-def rollover():
-    pass
+def rollover(path):
+    print 'getting new path', path
+    if os.path.isfile(path):
+        print 'renaming path'
+        shutil.move(path, path+'.old')
+    return open(path,'w',0)
 
 
 def genLines_BA(self):
     ''' generator for ba.log
         these logs occur constantly
     '''
-    with open(self.config['file']) as in_f, open(self.config['output'],'a',0) as out_f:
+    with open(self.config['file']) as in_f:
         count = 0
+        out_f = rollover(self.config['output'])
         while not self.stopped():
             for line in in_f:
                 if self.stopped():
@@ -103,6 +110,7 @@ def genLines_BA(self):
                 out_f.write(line)
 
                 time.sleep(0.5)
+            out_f = rollover(self.config['output'])
             in_f.seek(0)
 
 def genLines_Jboss(self):
@@ -112,8 +120,9 @@ def genLines_Jboss(self):
     '''
     ts_re = re.compile('^(\d{2}\s[A-Za-z]{3}\s\d{4}\s\d{2}:\d{2}:\d{2},\d{3})')
     ts_format = '%d %b %Y %H:%M:%S,%f'
-    with open(self.config['file']) as in_f, open(self.config['output'],'a',0) as out_f:
+    with open(self.config['file']) as in_f:
         count = 0
+        out_f = rollover(self.config['output'])
         while not self.stopped():
             lg = []
             for line in in_f:
@@ -136,6 +145,7 @@ def genLines_Jboss(self):
                     lg=[line]
                 else:
                     lg.append(line)
+            out_f = rollover(self.config['output'])                    
             in_f.seek(0) 
 
 def genLines_ExecProcess(self):
@@ -145,8 +155,9 @@ def genLines_ExecProcess(self):
         but these rapid times are separated by hours.
     '''
     ts_format = '%Y-%m-%d %H:%M:%S,%f'
-    with open(self.config['file']) as in_f, open(self.config['output'],'a',0) as out_f:
+    with open(self.config['file']) as in_f:
         count = 0
+        out_f = rollover(self.config['output'])
         while not self.stopped():
             for line in in_f:
                 if self.stopped():
@@ -161,6 +172,7 @@ def genLines_ExecProcess(self):
                 if not count%10:
                     print self.name,'-',count,'events sent'
                 time.sleep(1) 
+            out_f = rollover(self.config['output'])
             in_f.seek(0)
 
 def genLines_Conductor(self):
@@ -169,8 +181,9 @@ def genLines_Conductor(self):
         a few seconds.
     '''
     ts_format = '%d %b %Y %H:%M:%S,%f'
-    with open(self.config['file']) as in_f, open(self.config['output'],'a',0) as out_f:
+    with open(self.config['file']) as in_f:
         count = 0
+        out_f = rollover(self.config['output'])
         while not self.stopped():
             for line in in_f:
                 if self.stopped():
@@ -185,6 +198,7 @@ def genLines_Conductor(self):
                 if not count%10:
                     print self.name,'-',count,'events sent'
                 time.sleep(0.5) 
+            out_f = rollover(self.config['output'])
             in_f.seek(0)
 
 def genLines_AsperaSCPTransfer(self):
@@ -193,7 +207,8 @@ def genLines_AsperaSCPTransfer(self):
         a few seconds.
     '''
     ts_format = '%Y-%m-%d %H:%M:%S'
-    with open(self.config['file']) as in_f, open(self.config['output'],'a',0) as out_f:
+    out_f = rollover(self.config['output'])
+    with open(self.config['file']) as in_f:
         count = 0
         while not self.stopped():
             for line in in_f:
@@ -209,6 +224,7 @@ def genLines_AsperaSCPTransfer(self):
                 if not count%10:
                     print self.name,'-',count,'events sent'
                 time.sleep(0.3)
+            out_f = rollover(self.config['output'])
             in_f.seek(0)
 
 def genLines_PMG(self):
@@ -217,8 +233,9 @@ def genLines_PMG(self):
     '''
     ts_re = re.compile('^(\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2},\d{3})')
     ts_format = '%Y-%m-%d %H:%M:%S,%f'
-    with open(self.config['file']) as in_f, open(self.config['output'],'a',0) as out_f:
+    with open(self.config['file']) as in_f:
         count = 0
+        out_f = rollover(self.config['output'])
         while not self.stopped():
             lg = []
             for line in in_f:
@@ -242,6 +259,7 @@ def genLines_PMG(self):
                     lg=[line]
                 else:
                     lg.append(line)
+            out_f = rollover(self.config['output'])
             in_f.seek(0)
 
 def genLines_PMG_EVENTS(self):
@@ -250,8 +268,9 @@ def genLines_PMG_EVENTS(self):
         a few seconds.
     '''
     ts_format = '%Y-%m-%d %H:%M:%S,%f'
-    with open(self.config['file']) as in_f, open(self.config['output'],'a',0) as out_f:
+    with open(self.config['file']) as in_f:
         count = 0
+        out_f = rollover(self.config['output'])
         while not self.stopped():
             for line in in_f:
                 if self.stopped():
@@ -265,6 +284,7 @@ def genLines_PMG_EVENTS(self):
                 
                 if not count%10:
                     print self.name,'-',count,'events sent'
-                time.sleep(0.5) 
+                time.sleep(0.5)
+            out_f = rollover(self.config['output'])
             in_f.seek(0)
 
