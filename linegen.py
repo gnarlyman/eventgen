@@ -1,17 +1,26 @@
 #!/usr/bin/env python
 import sys, signal
-
+import logging, logging.handlers
 from lib.eventgenlib import create_splunk_input, connect_to_splunk
 from config import CONFIG
 
 threads = []
+
+LOG_FILENAME = 'linegen.log'
+logger = logging.getLogger('linegen')
+logger.setLevel(logging.DEBUG)
+handler = logging.handlers.RotatingFileHandler(
+            LOG_FILENAME, maxBytes=10**4, backupCount=3)
+handler.setLevel(logging.DEBUG)
+logger.addHandler(handler)
+logger.propagate = True
 
 def createGenerators():
     threads = []
     for c in CONFIG['linegen'].keys():
         if CONFIG['linegen'][c]['disabled']:
             continue
-        print(' '.join(['starting:', c]))
+        logger.debug(' '.join(['starting:', c]))
         t = CONFIG['linegen'][c]['callback'](
                     name=c,
                     config=CONFIG['linegen'][c]
@@ -22,7 +31,8 @@ def createGenerators():
 
 def signal_handler(signal, frame):
         global threads
-        print('closing threads...')
+        print
+        logger.debug('closing threads...')
         [t.stop() for t in threads]
         [t.join() for t in threads]
         sys.exit()
@@ -30,13 +40,14 @@ def signal_handler(signal, frame):
 def main():
     signal.signal(signal.SIGINT, signal_handler)
     try:
-        print 'connected!'
         global threads
         threads = createGenerators()
-        print 'starting', len(threads), 'threads...'
+        logger.debug(' '.join(['starting', str(len(threads)), 'threads...']))
         [t.start() for t in threads]
         signal.pause()
-
+    except Exception, err:
+        logger.exception(err, exc_info=True)
+        raise
     finally:
         sys.exit()
 

@@ -1,4 +1,4 @@
-import random, time, threading, socket
+import random, time, threading, socket, logging
 
 from lib.eventgenlib import now, clear_blacklist, clear_latency, current_milli_time
 from lib.async import CallLater
@@ -9,6 +9,7 @@ Emulation of SCTE 130 messages
 
 class LineGen(threading.Thread):
     sock = None
+    logger = logging.getLogger('linegen')
     def __init__(self, *args, **kwargs):
         super(LineGen, self).__init__()
         self.config = kwargs['config']
@@ -22,8 +23,13 @@ class LineGen(threading.Thread):
         return self._stop.isSet()
 
     def run(self): 
-        print 'LineGen:', self.config['file']
-        self.config['function'](self)
+
+        self.logger.debug(' '.join(['LineGen:', self.config['file']]))
+        try:
+            self.config['function'](self)
+        except Exception, err:
+            self.logger.exception(err, exc_info=True)
+            raise
 
 class Case(object):
     iterations = 0

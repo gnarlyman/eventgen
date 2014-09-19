@@ -82,157 +82,19 @@ def drange(start, stop, step):
 current_milli_time = lambda: int(round(time.time() * 1000))
 
 def rollover(path):
-    print 'getting new path', path
     if os.path.isfile(path):
-        print 'renaming path'
         shutil.move(path, path+'.old')
     return open(path,'w',0)
 
+def genLines_General(self):
+    ''' generator for *hopefully* any file
 
-def genLines_BA(self):
-    ''' generator for ba.log
-        these logs occur constantly
     '''
-    with open(self.config['file']) as in_f:
-        count = 0
-        out_f = rollover(self.config['output'])
-        while not self.stopped():
-            for line in in_f:
-                if self.stopped():
-                    return
-                count+=1
-                if not count%10:
-                    print self.name,'-',count,'events sent'
-                now = current_milli_time()
-
-                ts_len = 13
-                line = str(now)+line[ts_len:]
-                out_f.write(line)
-
-                time.sleep(0.5)
-            out_f = rollover(self.config['output'])
-            in_f.seek(0)
-
-def genLines_Jboss(self):
-    ''' generator for jboss.log
-        these logs occur infrequently, sometimes once a day,
-        other times several in a day but not spaced far apart.
-    '''
-    ts_re = re.compile('^(\d{2}\s[A-Za-z]{3}\s\d{4}\s\d{2}:\d{2}:\d{2},\d{3})')
-    ts_format = '%d %b %Y %H:%M:%S,%f'
-    with open(self.config['file']) as in_f:
-        count = 0
-        out_f = rollover(self.config['output'])
-        while not self.stopped():
-            lg = []
-            for line in in_f:
-                if self.stopped():
-                    return
-
-                m = ts_re.search(line)
-                if m:
-                    if len(lg):
-                        out_f.write(''.join(lg))
-                        count+=1
-                        print self.name,'-',count,'events sent'
-                        time.sleep(60) 
-
-                    ts = m.group(0)
-                    ts_len = len(ts)
-                    new_ts = datetime.utcnow().strftime(ts_format)[:-3]
-                    line = new_ts+line[ts_len:]
-
-                    lg=[line]
-                else:
-                    lg.append(line)
-            out_f = rollover(self.config['output'])                    
-            in_f.seek(0) 
-
-def genLines_ExecProcess(self):
-    ''' generator for executive-process.log
-        When these logs occur, they occur very rapidly
-        separated by milliseconds or seconds,
-        but these rapid times are separated by hours.
-    '''
-    ts_format = '%Y-%m-%d %H:%M:%S,%f'
-    with open(self.config['file']) as in_f:
-        count = 0
-        out_f = rollover(self.config['output'])
-        while not self.stopped():
-            for line in in_f:
-                if self.stopped():
-                    return
-                
-                count+=1
-                ts_len = 23
-                new_ts = datetime.utcnow().strftime(ts_format)[:-3]
-                line = new_ts+line[ts_len:]
-                out_f.write(line)
-                
-                if not count%10:
-                    print self.name,'-',count,'events sent'
-                time.sleep(1) 
-            out_f = rollover(self.config['output'])
-            in_f.seek(0)
-
-def genLines_Conductor(self):
-    ''' generator for conductor.log
-        These logs are constant, generally separated by only
-        a few seconds.
-    '''
-    ts_format = '%d %b %Y %H:%M:%S,%f'
-    with open(self.config['file']) as in_f:
-        count = 0
-        out_f = rollover(self.config['output'])
-        while not self.stopped():
-            for line in in_f:
-                if self.stopped():
-                    return
-                
-                count+=1
-                ts_len = 24
-                new_ts = datetime.utcnow().strftime(ts_format)[:-3]
-                line = new_ts+line[ts_len:]
-                out_f.write(line)
-                
-                if not count%10:
-                    print self.name,'-',count,'events sent'
-                time.sleep(0.5) 
-            out_f = rollover(self.config['output'])
-            in_f.seek(0)
-
-def genLines_AsperaSCPTransfer(self):
-    ''' generator for aspera-scp-transfer.log
-        These logs are constant, generally separated by only
-        a few seconds.
-    '''
-    ts_format = '%Y-%m-%d %H:%M:%S'
-    out_f = rollover(self.config['output'])
-    with open(self.config['file']) as in_f:
-        count = 0
-        while not self.stopped():
-            for line in in_f:
-                if self.stopped():
-                    return
-                
-                count+=1
-                ts_len = 19
-                new_ts = datetime.utcnow().strftime(ts_format)
-                line = new_ts+line[ts_len:]
-                out_f.write(line)
-                
-                if not count%10:
-                    print self.name,'-',count,'events sent'
-                time.sleep(0.3)
-            out_f = rollover(self.config['output'])
-            in_f.seek(0)
-
-def genLines_PMG(self):
-    ''' generator for PMG.log
-        
-    '''
-    ts_re = re.compile('^(\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2},\d{3})')
-    ts_format = '%Y-%m-%d %H:%M:%S,%f'
+    self.logger.debug(' '.join([self.name,'started']))
+    ts_re = re.compile(self.config['ts_re'])
+    ts_format = self.config['ts_format']
+    freq = self.config['freq']
+    NO_TS_STRIP = self.config.has_key('NO-TS-STRIP')
     with open(self.config['file']) as in_f:
         count = 0
         out_f = rollover(self.config['output'])
@@ -248,26 +110,29 @@ def genLines_PMG(self):
                         out_f.write(''.join(lg))
                         count+=1
                         if not count%10:
-                            print self.name,'-',count,'events sent'
-                        time.sleep(0.3) 
+                            self.logger.info(' '.join([self.name,'-',str(count),'events sent']))
+                        time.sleep(freq) 
 
                     ts = m.group(0)
                     ts_len = len(ts)
-                    new_ts = datetime.utcnow().strftime(ts_format)[:-3]
+                    if NO_TS_STRIP:
+                        new_ts = datetime.utcnow().strftime(ts_format)
+                    else:
+                        new_ts = datetime.utcnow().strftime(ts_format)[:-3]
                     line = new_ts+line[ts_len:]
 
                     lg=[line]
                 else:
                     lg.append(line)
-            out_f = rollover(self.config['output'])
-            in_f.seek(0)
+            out_f = rollover(self.config['output'])                    
+            in_f.seek(0) 
 
-def genLines_PMG_EVENTS(self):
-    ''' generator for PMG_EVENTS.log
-        These logs are constant, generally separated by only
-        a few seconds.
+
+def genLines_BA(self):
+    ''' generator for ba.log
+        these logs occur constantly
     '''
-    ts_format = '%Y-%m-%d %H:%M:%S,%f'
+    self.logger.debug(' '.join([self.name,'started']))
     with open(self.config['file']) as in_f:
         count = 0
         out_f = rollover(self.config['output'])
@@ -275,16 +140,15 @@ def genLines_PMG_EVENTS(self):
             for line in in_f:
                 if self.stopped():
                     return
-                
                 count+=1
-                ts_len = 23
-                new_ts = datetime.utcnow().strftime(ts_format)[:-3]
-                line = new_ts+line[ts_len:]
-                out_f.write(line)
-                
                 if not count%10:
-                    print self.name,'-',count,'events sent'
+                    self.logger.info(' '.join([self.name,'-',str(count),'events sent']))
+                now = current_milli_time()
+
+                ts_len = 13
+                line = str(now)+line[ts_len:]
+                out_f.write(line)
+
                 time.sleep(0.5)
             out_f = rollover(self.config['output'])
             in_f.seek(0)
-

@@ -1,5 +1,4 @@
 import json
-
 from lib.eventgenlib import *
 
 from lib.gen import Case, LineGen
@@ -61,53 +60,72 @@ CONFIG = {
     # LineGen configuration
     'linegen' : {
         'ba.log' : {
-            'disabled':False,
+            'disabled':True,
             'file':'samples/ba.log',
             'callback':LineGen,
             'function':genLines_BA,
             'output':'output/ba.log',
         },
         'jboss.log' : {
-            'disabled':True,
+            'disabled':False,
             'file':'samples/jboss.all.log',
             'callback':LineGen,
-            'function':genLines_Jboss,
+            'function':genLines_General,
             'output':'output/jboss.log',
+            'ts_re':'^(\d{2}\s[A-Za-z]{3}\s\d{4}\s\d{2}:\d{2}:\d{2},\d{3})',
+            'ts_format':'%d %b %Y %H:%M:%S,%f',
+            'freq':2,
         },
         'executive-process.log' : {
             'disabled':True,
             'file':'samples/executive-process.log',
             'callback':LineGen,
-            'function':genLines_ExecProcess,
+            'function':genLines_General,
             'output':'output/executive-process.log',
+            'ts_re':'^(\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2},\d{3})',
+            'ts_format':'%Y-%m-%d %H:%M:%S,%f',
+            'freq':1,
         },
         'conductor.log' : {
             'disabled':True,
             'file':'samples/conductor.all.log',
             'callback':LineGen,
-            'function':genLines_Conductor,
+            'function':genLines_General,
             'output':'output/conductor.log',
+            'ts_re':'^(\d{2}\s[A-Za-z]{3}\s\d{4}\s\d{2}:\d{2}:\d{2},\d{3})',
+            'ts_format':'%d %b %Y %H:%M:%S,%f',
+            'freq':0.5,
         },
         'aspera-scp-transfer.log' : {
             'disabled':False,
             'file':'samples/aspera-scp-transfer.all.log',
             'callback':LineGen,
-            'function':genLines_AsperaSCPTransfer,
+            'function':genLines_General,
             'output':'output/aspera-scp-transfer.log',
+            'ts_re':'^(\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2})',
+            'ts_format':'%Y-%m-%d %H:%M:%S',
+            'freq':0.5,
+            'NO-TS-STRIP':'',
         },
         'PMG.log' : {
             'disabled':False,
             'file':'samples/PMG.all.log',
             'callback':LineGen,
-            'function':genLines_PMG,
+            'function':genLines_General,
             'output':'output/PMG.log',
+            'ts_re':'^(\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2},\d{3})',
+            'ts_format':'%Y-%m-%d %H:%M:%S,%f',
+            'freq':0.3,
         },
         'PMG_EVENTS.log' : {
             'disabled':False,
             'file':'samples/PMG_EVENTS.all.log',
             'callback':LineGen,
-            'function':genLines_PMG_EVENTS,
+            'function':genLines_General,
             'output':'output/PMG_EVENTS.log',
+            'ts_re':'^(\d{4}-\d{2}-\d{2}\s\d{2}:\d{2}:\d{2},\d{3})',
+            'ts_format':'%Y-%m-%d %H:%M:%S,%f',
+            'freq':0.5,
         },
     },
 }
