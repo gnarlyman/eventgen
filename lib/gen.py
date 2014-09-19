@@ -3,10 +3,6 @@ import random, time, threading, socket, logging
 from lib.eventgenlib import now, clear_blacklist, clear_latency, current_milli_time
 from lib.async import CallLater
 
-'''
-Emulation of SCTE 130 messages
-'''
-
 class LineGen(threading.Thread):
     sock = None
     logger = logging.getLogger('linegen')

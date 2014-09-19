@@ -13,7 +13,6 @@ handler = logging.handlers.RotatingFileHandler(
             LOG_FILENAME, maxBytes=10**4, backupCount=3)
 handler.setLevel(logging.DEBUG)
 logger.addHandler(handler)
-logger.propagate = True
 
 def createGenerators():
     threads = []
@@ -31,13 +30,15 @@ def createGenerators():
 
 def signal_handler(signal, frame):
         global threads
-        print
+        print('')
         logger.debug('closing threads...')
         [t.stop() for t in threads]
         [t.join() for t in threads]
         sys.exit()
 
 def main():
+    print('running... see linegen.log for activity')
+    print('CTRL+C to quit')
     signal.signal(signal.SIGINT, signal_handler)
     try:
         global threads
