@@ -10,7 +10,7 @@ LOG_FILENAME = 'linegen.log'
 logger = logging.getLogger('linegen')
 logger.setLevel(logging.DEBUG)
 handler = logging.handlers.RotatingFileHandler(
-            LOG_FILENAME, maxBytes=10**4, backupCount=3)
+            LOG_FILENAME, maxBytes=10**6, backupCount=3)
 handler.setLevel(logging.DEBUG)
 logger.addHandler(handler)
 

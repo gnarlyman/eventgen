@@ -60,7 +60,7 @@ CONFIG = {
     # LineGen configuration
     'linegen' : {
         'ba.log' : {
-            'disabled':True,
+            'disabled':False,
             'file':'samples/ba.log',
             'callback':LineGen,
             'function':genLines_BA,

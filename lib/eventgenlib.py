@@ -116,9 +116,9 @@ def genLines_General(self):
                     ts = m.group(0)
                     ts_len = len(ts)
                     if NO_TS_STRIP:
-                        new_ts = datetime.utcnow().strftime(ts_format)
+                        new_ts = datetime.now().strftime(ts_format)
                     else:
-                        new_ts = datetime.utcnow().strftime(ts_format)[:-3]
+                        new_ts = datetime.now().strftime(ts_format)[:-3]
                     line = new_ts+line[ts_len:]
 
                     lg=[line]
