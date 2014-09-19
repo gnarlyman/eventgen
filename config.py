@@ -68,11 +68,46 @@ CONFIG = {
             'output':'output/ba.log',
         },
         'jboss.log' : {
-            'disabled':False,
+            'disabled':True,
             'file':'samples/jboss.all.log',
             'callback':LineGen,
             'function':genLines_Jboss,
             'output':'output/jboss.log',
-        }
+        },
+        'executive-process.log' : {
+            'disabled':True,
+            'file':'samples/executive-process.log',
+            'callback':LineGen,
+            'function':genLines_ExecProcess,
+            'output':'output/executive-process.log',
+        },
+        'conductor.log' : {
+            'disabled':True,
+            'file':'samples/conductor.all.log',
+            'callback':LineGen,
+            'function':genLines_Conductor,
+            'output':'output/conductor.log',
+        },
+        'aspera-scp-transfer.log' : {
+            'disabled':False,
+            'file':'samples/aspera-scp-transfer.all.log',
+            'callback':LineGen,
+            'function':genLines_AsperaSCPTransfer,
+            'output':'output/aspera-scp-transfer.log',
+        },
+        'PMG.log' : {
+            'disabled':False,
+            'file':'samples/PMG.all.log',
+            'callback':LineGen,
+            'function':genLines_PMG,
+            'output':'output/PMG.log',
+        },
+        'PMG_EVENTS.log' : {
+            'disabled':False,
+            'file':'samples/PMG_EVENTS.all.log',
+            'callback':LineGen,
+            'function':genLines_PMG_EVENTS,
+            'output':'output/PMG_EVENTS.log',
+        },
     },
 }
