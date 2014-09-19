@@ -38,7 +38,7 @@ def signal_handler(signal, frame):
 
 def main():
     print('running... see linegen.log for activity')
-    print('CTRL+C to quit')
+    print('CTRL+C to quit, might take up to 60 seconds')
     signal.signal(signal.SIGINT, signal_handler)
     try:
         global threads

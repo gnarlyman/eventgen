@@ -1,35 +1,3 @@
-global name 'lines' is not defined
-Traceback (most recent call last):
-  File "/Users/mschon/Documents/dev/EventGen/lib/gen.py", line 28, in run
-    self.config['function'](self)
-  File "/Users/mschon/Documents/dev/EventGen/lib/eventgenlib.py", line 125, in genLines_General
-    lg=[lines]
-NameError: global name 'lines' is not defined
-closing threads...
-starting: PMG.log
-starting: aspera-scp-transfer.log
-starting: jboss.log
-starting: PMG_EVENTS.log
-PMG.log started
-aspera-scp-transfer.log started
-jboss.log started
-PMG_EVENTS.log started
-PMG.log - 10 events sent
-aspera-scp-transfer.log - 10 events sent
-PMG_EVENTS.log - 10 events sent
-PMG.log - 20 events sent
-PMG.log - 30 events sent
-PMG_EVENTS.log - 20 events sent
-aspera-scp-transfer.log - 20 events sent
-PMG.log - 40 events sent
-PMG_EVENTS.log - 30 events sent
-aspera-scp-transfer.log - 30 events sent
-PMG.log - 50 events sent
-PMG.log - 60 events sent
-jboss.log - 10 events sent
-aspera-scp-transfer.log - 40 events sent
-PMG_EVENTS.log - 40 events sent
-PMG.log - 70 events sent
 PMG.log - 80 events sent
 aspera-scp-transfer.log - 50 events sent
 PMG_EVENTS.log - 50 events sent
@@ -46,278 +14,58 @@ PMG.log - 130 events sent
 PMG_EVENTS.log - 80 events sent
 aspera-scp-transfer.log - 80 events sent
 PMG.log - 140 events sent
-closing threads...
-starting: PMG.log
-starting: aspera-scp-transfer.log
-starting: jboss.log
-starting: PMG_EVENTS.log
-closing threads...
-starting: PMG.log
-starting: aspera-scp-transfer.log
-starting: jboss.log
-starting: PMG_EVENTS.log
-LineGen: samples/PMG.all.log
-LineGen: samples/aspera-scp-transfer.all.log
-PMG.log started
-LineGen: samples/jboss.all.log
-aspera-scp-transfer.log started
-LineGen: samples/PMG_EVENTS.all.log
-jboss.log started
-PMG_EVENTS.log started
-PMG.log - 10 events sent
-closing threads...
-starting: PMG.log
-starting: aspera-scp-transfer.log
-starting: jboss.log
-starting: PMG_EVENTS.log
-sequence item 1: expected string, int found
-Traceback (most recent call last):
-  File "linegen.py", line 45, in main
-    logger.debug(' '.join(['starting', len(threads), 'threads...']))
-TypeError: sequence item 1: expected string, int found
-starting: PMG.log
-starting: aspera-scp-transfer.log
-starting: jboss.log
-starting: PMG_EVENTS.log
-starting 4 threads...
-LineGen: samples/PMG.all.log
-LineGen: samples/aspera-scp-transfer.all.log
-LineGen: samples/jboss.all.log
-PMG.log started
-LineGen: samples/PMG_EVENTS.all.log
-aspera-scp-transfer.log started
-jboss.log started
-PMG_EVENTS.log started
-closing threads...
-starting: PMG.log
-starting: aspera-scp-transfer.log
-starting: jboss.log
-starting: PMG_EVENTS.log
-starting 4 threads...
-LineGen: samples/PMG.all.log
-PMG.log started
-LineGen: samples/aspera-scp-transfer.all.log
-aspera-scp-transfer.log started
-LineGen: samples/jboss.all.log
-LineGen: samples/PMG_EVENTS.all.log
-jboss.log started
-PMG_EVENTS.log started
-PMG.log - 10 events sent
-closing threads...
-starting: PMG.log
-starting: aspera-scp-transfer.log
-starting: jboss.log
-starting: PMG_EVENTS.log
-starting 4 threads...
-LineGen: samples/PMG.all.log
-PMG.log started
-LineGen: samples/aspera-scp-transfer.all.log
-aspera-scp-transfer.log started
-LineGen: samples/jboss.all.log
-jboss.log started
-LineGen: samples/PMG_EVENTS.all.log
-PMG_EVENTS.log started
-closing threads...
-starting: PMG.log
-starting: aspera-scp-transfer.log
-starting: jboss.log
-starting: PMG_EVENTS.log
-starting 4 threads...
-LineGen: samples/PMG.all.log
-LineGen: samples/aspera-scp-transfer.all.log
-PMG.log started
-LineGen: samples/jboss.all.log
-LineGen: samples/PMG_EVENTS.all.log
-aspera-scp-transfer.log started
-jboss.log started
-PMG_EVENTS.log started
-PMG.log - 10 events sent
-aspera-scp-transfer.log - 10 events sent
-PMG_EVENTS.log - 10 events sent
-closing threads...
-starting: PMG.log
-starting: aspera-scp-transfer.log
-starting: jboss.log
-starting: PMG_EVENTS.log
-starting 4 threads...
-LineGen: samples/PMG.all.log
-PMG.log started
-LineGen: samples/aspera-scp-transfer.all.log
-LineGen: samples/jboss.all.log
-LineGen: samples/PMG_EVENTS.all.log
-aspera-scp-transfer.log started
-jboss.log started
-PMG_EVENTS.log started
-closing threads...
-starting: PMG.log
-starting: aspera-scp-transfer.log
-starting: jboss.log
-starting: PMG_EVENTS.log
-starting 4 threads...
-LineGen: samples/PMG.all.log
-LineGen: samples/aspera-scp-transfer.all.log
-LineGen: samples/jboss.all.log
-PMG.log started
-aspera-scp-transfer.log started
-LineGen: samples/PMG_EVENTS.all.log
-jboss.log started
-PMG_EVENTS.log started
-closing threads...
-starting: PMG.log
-starting: aspera-scp-transfer.log
-starting: jboss.log
-starting: PMG_EVENTS.log
-starting 4 threads...
-LineGen: samples/PMG.all.log
-LineGen: samples/aspera-scp-transfer.all.log
-PMG.log started
-LineGen: samples/jboss.all.log
-LineGen: samples/PMG_EVENTS.all.log
-PMG_EVENTS.log started
-aspera-scp-transfer.log started
-jboss.log started
-PMG.log - 10 events sent
-aspera-scp-transfer.log - 10 events sent
-PMG_EVENTS.log - 10 events sent
-PMG.log - 20 events sent
-PMG.log - 30 events sent
-aspera-scp-transfer.log - 20 events sent
-PMG_EVENTS.log - 20 events sent
-PMG.log - 40 events sent
-aspera-scp-transfer.log - 30 events sent
-PMG_EVENTS.log - 30 events sent
-PMG.log - 50 events sent
-PMG.log - 60 events sent
-jboss.log - 10 events sent
-aspera-scp-transfer.log - 40 events sent
-PMG_EVENTS.log - 40 events sent
-PMG.log - 70 events sent
-PMG.log - 80 events sent
-aspera-scp-transfer.log - 50 events sent
-PMG_EVENTS.log - 50 events sent
-PMG.log - 90 events sent
-closing threads...
-starting: PMG.log
-starting: aspera-scp-transfer.log
-starting: jboss.log
-starting: PMG_EVENTS.log
-starting 4 threads...
-LineGen: samples/PMG.all.log
-PMG.log started
-LineGen: samples/aspera-scp-transfer.all.log
-aspera-scp-transfer.log started
-LineGen: samples/jboss.all.log
-LineGen: samples/PMG_EVENTS.all.log
-jboss.log started
-PMG_EVENTS.log started
-PMG.log - 10 events sent
-aspera-scp-transfer.log - 10 events sent
-PMG_EVENTS.log - 10 events sent
-PMG.log - 20 events sent
-PMG.log - 30 events sent
-PMG_EVENTS.log - 20 events sent
-aspera-scp-transfer.log - 20 events sent
-closing threads...
-starting: PMG.log
-starting: aspera-scp-transfer.log
-starting: jboss.log
-starting: PMG_EVENTS.log
-starting 4 threads...
-LineGen: samples/PMG.all.log
-PMG.log started
-LineGen: samples/aspera-scp-transfer.all.log
-aspera-scp-transfer.log started
-LineGen: samples/PMG_EVENTS.all.log
-LineGen: samples/jboss.all.log
-PMG_EVENTS.log started
-jboss.log started
-PMG.log - 10 events sent
-aspera-scp-transfer.log - 10 events sent
-PMG_EVENTS.log - 10 events sent
-PMG.log - 20 events sent
-PMG.log - 30 events sent
-PMG_EVENTS.log - 20 events sent
-aspera-scp-transfer.log - 20 events sent
-PMG.log - 40 events sent
-PMG_EVENTS.log - 30 events sent
-aspera-scp-transfer.log - 30 events sent
-PMG.log - 50 events sent
-PMG.log - 60 events sent
-jboss.log - 10 events sent
-PMG_EVENTS.log - 40 events sent
-aspera-scp-transfer.log - 40 events sent
-PMG.log - 70 events sent
-PMG.log - 80 events sent
-closing threads...
-starting: PMG.log
-starting: aspera-scp-transfer.log
-starting: jboss.log
-starting: PMG_EVENTS.log
-starting 4 threads...
-LineGen: samples/PMG.all.log
-LineGen: samples/aspera-scp-transfer.all.log
-PMG.log started
-LineGen: samples/jboss.all.log
-aspera-scp-transfer.log started
-LineGen: samples/PMG_EVENTS.all.log
-jboss.log started
-PMG_EVENTS.log started
-PMG.log - 10 events sent
-PMG_EVENTS.log - 10 events sent
-aspera-scp-transfer.log - 10 events sent
-PMG.log - 20 events sent
-closing threads...
-starting: PMG.log
-starting: aspera-scp-transfer.log
-starting: jboss.log
-starting: PMG_EVENTS.log
-starting 4 threads...
-LineGen: samples/PMG.all.log
-LineGen: samples/aspera-scp-transfer.all.log
-LineGen: samples/jboss.all.log
-LineGen: samples/PMG_EVENTS.all.log
-PMG.log started
-aspera-scp-transfer.log started
-jboss.log started
-PMG_EVENTS.log started
-PMG.log - 10 events sent
-closing threads...
-starting: PMG.log
-starting: aspera-scp-transfer.log
-starting: jboss.log
-starting: PMG_EVENTS.log
-starting 4 threads...
-LineGen: samples/PMG.all.log
-PMG.log started
-LineGen: samples/aspera-scp-transfer.all.log
-LineGen: samples/jboss.all.log
-aspera-scp-transfer.log started
-LineGen: samples/PMG_EVENTS.all.log
-PMG_EVENTS.log started
-jboss.log started
-PMG.log - 10 events sent
-aspera-scp-transfer.log - 10 events sent
-PMG_EVENTS.log - 10 events sent
-PMG.log - 20 events sent
-PMG.log - 30 events sent
-aspera-scp-transfer.log - 20 events sent
-PMG_EVENTS.log - 20 events sent
-PMG.log - 40 events sent
-aspera-scp-transfer.log - 30 events sent
-PMG_EVENTS.log - 30 events sent
-PMG.log - 50 events sent
-closing threads...
-starting: PMG.log
-starting: aspera-scp-transfer.log
-starting: jboss.log
-starting: PMG_EVENTS.log
-starting 4 threads...
-LineGen: samples/PMG.all.log
-PMG.log started
-LineGen: samples/aspera-scp-transfer.all.log
-aspera-scp-transfer.log started
-LineGen: samples/jboss.all.log
-jboss.log started
-LineGen: samples/PMG_EVENTS.all.log
-PMG_EVENTS.log started
+PMG_EVENTS.log - 90 events sent
+aspera-scp-transfer.log - 90 events sent
+PMG.log - 150 events sent
+PMG.log - 160 events sent
+PMG_EVENTS.log - 100 events sent
+aspera-scp-transfer.log - 100 events sent
+PMG.log - 170 events sent
+PMG.log - 180 events sent
+PMG_EVENTS.log - 110 events sent
+aspera-scp-transfer.log - 110 events sent
+PMG.log - 190 events sent
+jboss.log - 30 events sent
+PMG_EVENTS.log - 120 events sent
+aspera-scp-transfer.log - 120 events sent
+PMG.log - 200 events sent
+PMG.log - 210 events sent
+PMG_EVENTS.log - 130 events sent
+aspera-scp-transfer.log - 130 events sent
+PMG.log - 220 events sent
+PMG.log - 230 events sent
+PMG_EVENTS.log - 140 events sent
+aspera-scp-transfer.log - 140 events sent
+PMG.log - 240 events sent
+PMG_EVENTS.log - 150 events sent
+aspera-scp-transfer.log - 150 events sent
+PMG.log - 250 events sent
+PMG.log - 260 events sent
+jboss.log - 40 events sent
+PMG_EVENTS.log - 160 events sent
+aspera-scp-transfer.log - 160 events sent
+PMG.log - 270 events sent
+PMG.log - 280 events sent
+PMG_EVENTS.log - 170 events sent
+aspera-scp-transfer.log - 170 events sent
+PMG.log - 290 events sent
+PMG_EVENTS.log - 180 events sent
+aspera-scp-transfer.log - 180 events sent
+PMG.log - 300 events sent
+PMG.log - 310 events sent
+PMG_EVENTS.log - 190 events sent
+aspera-scp-transfer.log - 190 events sent
+PMG.log - 320 events sent
+jboss.log - 50 events sent
+PMG.log - 330 events sent
+PMG_EVENTS.log - 200 events sent
+aspera-scp-transfer.log - 200 events sent
+PMG.log - 340 events sent
+PMG_EVENTS.log - 210 events sent
+aspera-scp-transfer.log - 210 events sent
+PMG.log - 350 events sent
+PMG.log - 360 events sent
+aspera-scp-transfer.log - 220 events sent
+PMG_EVENTS.log - 220 events sent
+PMG.log - 370 events sent
 closing threads...

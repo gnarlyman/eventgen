@@ -74,7 +74,7 @@ CONFIG = {
             'output':'output/jboss.log',
             'ts_re':'^(\d{2}\s[A-Za-z]{3}\s\d{4}\s\d{2}:\d{2}:\d{2},\d{3})',
             'ts_format':'%d %b %Y %H:%M:%S,%f',
-            'freq':2,
+            'freq':60,
         },
         'executive-process.log' : {
             'disabled':True,
