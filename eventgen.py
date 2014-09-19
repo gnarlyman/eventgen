@@ -75,6 +75,9 @@ Changelog
 
 0.1.5
 -Added Canoe logs, test_case_3 and 4
+
+0.1.6
+-Added LineGen
 '''
 
 def main():
